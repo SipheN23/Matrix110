@@ -14,7 +14,6 @@
 **Brick Breaker Matrix v1.10**
 
 ## Project Page
-For more information, visit our project page.
 https://github.com/GoldenOwl24/Matrix110.git
 
 
