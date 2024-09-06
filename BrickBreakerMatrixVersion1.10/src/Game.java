@@ -12,6 +12,7 @@ public class Game{
         wnd.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         wnd.setLocationRelativeTo(null);//Make window appear in the center of the screen
         wnd.add(gamePlay);
+        
     }
 
 }
