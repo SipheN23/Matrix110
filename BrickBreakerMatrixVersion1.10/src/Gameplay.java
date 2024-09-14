@@ -8,7 +8,7 @@ public class Gameplay extends JPanel implements KeyListener {
 
     // Constructor for the Gameplay class
     public Gameplay() {
-        paddle = new Paddle(310, 500); // Initialize the paddle at a specific position
+        paddle = new Paddle(450, 700); // Initialize the paddle at a specific position
         addKeyListener(this); 
         setFocusable(true); 
         setFocusTraversalKeysEnabled(false); 
