@@ -7,6 +7,7 @@ public  class Brick{
     private int strength;           //brickstrength  
     private int width;
     private int height;
+    private Ball ball;              //ball class to acces ball's attributes
 
     //contructor
     public Brick(){
@@ -46,28 +47,39 @@ public  class Brick{
         this.color = color;
     }
 
+    public int getStrength(){
+        return this.strength;
+    }
+
+    public int getWidth(){
+        return this.width;
+    }
+
+    public int getHeight(){
+        return this.height;
+    }
 
     //this method allows a brick to break
     public void hitBrick(){
         
-        //if the brick is Red make the strength 5 (1 hit to break)
+        //if the brick is Red make the strength 1 (1 hit to break)
         if(this.color == Color.red){
-            this.strength = 5;
+            this.strength = 1;
 
-        //if the brick is dark red make the strength 15 (3 hits to break)
+        //if the brick is dark red make the strength 2 (2 hits to break)
         }else if(this.color == new Color(178, 0, 0)){
-            this.strength = 15; 
+            this.strength = 2; 
 
-        //if the brick is silver make the strength 30 (6 hits to break)    
+        //if the brick is silver make the strength 3 (3 hits to break)    
         }else{
-            this.strength = 30;
+            this.strength = 3;
         }
         
-        //for (int i = this.strength; i > 0; i-=5){
-         //   if(collides()){
-           //     
-          //  }
-        //}
+        for (int i = this.strength; i > 0; i--){
+            if(collides()){
+              strength--;  
+            }
+        }
     }
     // clamp method to restrict bounderies
     private int clamp(int value, int min, int max){
