@@ -1,0 +1,30 @@
+import javax.swing.*;
+import java.awt.*;
+
+public class BallPanel extends JPanel {
+    private Ball ball;
+
+    public BallPanel(Ball ball) {
+        this.ball = ball;
+    }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        g.setColor(Color.BLUE);
+        // Draw the ball at its current position
+        g.fillOval(ball.getX() - ball.getRadius(), ball.getY() - ball.getRadius(),
+                ball.getRadius() * 2, ball.getRadius() * 2);
+    }
+
+    // Method to update the ball's position
+    public void update() {
+        ball.move();
+        // Check for wall collisions
+        if (ball.hitsWall(getWidth(), getHeight())) {
+            ball.bounceX();
+            ball.bounceY();
+        }
+        repaint(); 
+    }
+}
