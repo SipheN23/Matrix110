@@ -1,0 +1,44 @@
+public class Ball {
+    private int x; 
+    private int y; 
+    private int radius; 
+    private int xSpeed; 
+    private int ySpeed; 
+
+    public Ball(int startX, int startY, int ballRadius, int startXSpeed, int startYSpeed) {
+        x = startX;
+        y = startY;
+        radius = ballRadius;
+        xSpeed = startXSpeed;
+        ySpeed = startYSpeed;
+    }
+
+    public void move() {
+        x += xSpeed;
+        y += ySpeed;
+    }
+
+    public void bounceX() {
+        xSpeed = -xSpeed;
+    }
+
+    public void bounceY() {
+        ySpeed = -ySpeed;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public int getRadius() {
+        return radius;
+    }
+
+    public boolean hitsWall(int width, int height) {
+        return (x - radius < 0 || x + radius > width || y - radius < 0 || y + radius > height);
+    }
+}
