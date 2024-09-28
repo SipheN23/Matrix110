@@ -19,6 +19,18 @@ public class Gameplay extends JPanel implements KeyListener {
         setFocusTraversalKeysEnabled(false); 
         bricks = new ArrayList<>(); 
         initializeBricks(); 
+
+        levelTimer = new GameTimer(60);  // Initialise the game timer
+        levelTimer.start();
+
+        gameUpdateTimer = new Timer(16, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e){
+                updateGame();
+                repaint();
+            }
+        });
+        gameUpdateTimer.start();
     }
 
     // Method to initialize the bricks
