@@ -17,7 +17,7 @@ public class Launch implements ActionListener {
     Launch() {
         // Load the background image
         try {
-            backgroundImage = ImageIO.read(new File("C:\\Users\\HP\\eclipse-workspace\\Matrix110shumi\\src\\game\\MenuBackground.jpg"));
+            backgroundImage = ImageIO.read(new File("BrickBreakerMatrixVersion1.10/src/Purple Space Matrix.png"));
         } catch (Exception e) {
             e.printStackTrace();
         }
