@@ -10,6 +10,7 @@ import java.io.File;
 public class GameBackground extends JFrame{
 	
 	    public GameBackground() {
+		    //this class uses Jframes to create the background of the game
 	    	
 	        setSize(1200,800);
 	        setVisible(true);
