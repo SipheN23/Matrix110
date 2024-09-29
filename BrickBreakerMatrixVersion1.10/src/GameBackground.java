@@ -17,7 +17,7 @@ public class GameBackground extends JFrame{
 
 	        setLayout(new BorderLayout());
 
-	        JLabel background=new JLabel(new ImageIcon("C:\\Users\\HP\\eclipse-workspace\\Matrix110shumi\\src\\game\\Purple Space Matrix.png"));
+	        JLabel background=new JLabel(new ImageIcon("BrickBreakerMatrixVersion1.10/src/Purple Space Matrix.png"));
 	        add(background);
 
 	        background.setLayout(new FlowLayout());
