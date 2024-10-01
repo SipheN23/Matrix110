@@ -1,27 +1,27 @@
-package game;
-
+import java.awt.*;
+import java.io.File;
+import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.File;
 
-public class GameBackground extends JFrame{
-	
-	    public GameBackground() {
-		    //this class uses Jframes to create the background of the game
-	    	
-	        setSize(1200,800);
-	        setVisible(true);
+public class GameBackground extends JPanel {
+    private Image backgroundImage;
 
-	        setLayout(new BorderLayout());
+    public GameBackground() {
+        try {
+            // Load the background image 
+            backgroundImage = ImageIO.read(new File("C:\\Users\\Siyab\\Downloads\\brick breaker matrix v1.1.jpeg")); // Edit path for your machine
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
-	        JLabel background=new JLabel(new ImageIcon("BrickBreakerMatrixVersion1.10/src/Purple Space Matrix.png"));
-	        add(background);
-
-	        background.setLayout(new FlowLayout());
-
-	    }
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        // Draw the background image
+        if (backgroundImage != null) {
+            g.drawImage(backgroundImage, 0, 0, getWidth(), getHeight(), this);
+        }
+    }
 }
-    

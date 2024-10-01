@@ -1,11 +1,11 @@
-import java.awt.Color; 
-import java.awt.Graphics; 
+import java.awt.Color;
+import java.awt.Graphics;
 
 public class Paddle {
-    private int paddleXCoord; // X coordinate of the paddle
-    private int paddleYCoord; // Y coordinate of the paddle
-    private int paddleWidth = 100; // Width of the paddle
-    private int paddleHeight = 8; // Height of the paddle
+    private int paddleXCoord;
+    private int paddleYCoord;
+    private int paddleWidth = 100;
+    private int paddleHeight = 8;
 
     // Constructor to initialize paddle position
     public Paddle(int startXCoord, int startYCoord) {
@@ -15,37 +15,38 @@ public class Paddle {
 
     // Method to move the paddle to the right
     public void moveRight() {
-        paddleXCoord += 20; // Increment X coordinate
+        this.paddleXCoord += 20; // Move paddle right
     }
 
     // Method to move the paddle to the left
     public void moveLeft() {
-        paddleXCoord -= 20; // Decrement X coordinate
+        this.paddleXCoord -= 20; // Move paddle left
     }
 
-    // Method to draw the paddle on the screen
     public void draw(Graphics g) {
-        g.setColor(Color.green); // Set the color to green
-        g.fillRect(paddleXCoord, paddleYCoord, paddleWidth, paddleHeight); // Draw the paddle
+        g.setColor(Color.GREEN); // Set the color to green
+        g.fillRect(this.paddleXCoord, this.paddleYCoord, this.paddleWidth, this.paddleHeight);// Draw the paddle
     }
-
-    // Accessor for the x coordinate of the paddle
+    // Accessor for the paddle's X coordinate
     public int getPaddleXCoord() {
-        return paddleXCoord;
+        return this.paddleXCoord;
     }
-
-    // Accessor for the y coordinate of the paddle
-    public int getPaddleYCoord() {
-        return paddleYCoord;
+    // Accessor for the paddle's Y coordinate
+    public int getPaddleYCoord(){
+        return this.paddleYCoord;
     }
-
-    // Method to set the paddle's X coordinate
-    public void setPaddleBounds(int xCoords) {
-        this.paddleXCoord = xCoords; // Set the X coordinate
-    }
-
     // Accessor for the paddle's width
     public int getPaddleWidth() {
-        return paddleWidth;
+        return this.paddleWidth; 
     }
+    // Accessor for the paddle's height
+    public int getPaddleHeight() {
+        return this.paddleHeight; 
+    }//Accessors
+
+
+    public void setPaddleBounds(int xCoords) {
+        this.paddleXCoord = xCoords; 
+    }//Setter
+    
 }
