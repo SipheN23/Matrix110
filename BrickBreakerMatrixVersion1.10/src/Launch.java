@@ -52,7 +52,7 @@ public class Launch implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == myButton) {
             frame.dispose();
-            new GameBackground(); // This then launches the next image as the game background
+            Gameplay g = new Gameplay(); // This then launches the next image as the game background
         }
     }
 }
