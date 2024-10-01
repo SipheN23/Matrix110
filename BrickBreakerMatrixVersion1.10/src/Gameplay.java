@@ -24,7 +24,7 @@ public class Gameplay extends GameBackground implements KeyListener {
     }
 
     public void startGame() {
-        timer = new Timer(20, e -> gameLoop()); // Update every 20 ms
+        timer = new Timer(20, e -> gameLoop()); // Calls gameloop to update game every 20 ms
         timer.start(); // Start the timer
     }
 

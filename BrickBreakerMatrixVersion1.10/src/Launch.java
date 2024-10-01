@@ -17,7 +17,7 @@ public class Launch implements ActionListener {
     public Launch() {
         // Load the background image
         try {
-            backgroundImage = ImageIO.read(new File("C:\\Users\\Siyab\\Downloads\\_b35486c8-42a6-4f64-b4b0-30c60f537c6c.jpeg")); // Edit path for yor machine
+            backgroundImage = ImageIO.read(new File("C:\\Users\\Siyab\\Downloads\\_b35486c8-42a6-4f64-b4b0-30c60f537c6c.jpeg")); // Edit path for your machine
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -37,7 +37,7 @@ public class Launch implements ActionListener {
             }
         };
 
-        panel.setLayout(null); // Use null layout to manually position componenets
+        panel.setLayout(null); // Use null layout to manually position components
         playButton.setBounds(WINDOW_WIDTH / 2 - 100, WINDOW_HEIGHT / 2 - 20, 200, 40); // Center the button
         playButton.setFocusable(false);
         playButton.addActionListener(this);
