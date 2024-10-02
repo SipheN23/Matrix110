@@ -17,7 +17,7 @@ public class Launch implements ActionListener {
     public Launch() {
         // Load the background image
         try {
-            backgroundImage = ImageIO.read(new File("C:\\Users\\Siyab\\Downloads\\_b35486c8-42a6-4f64-b4b0-30c60f537c6c.jpeg")); // Edit path for your machine
+            backgroundImage = ImageIO.read(new File("BrickBreakerMatrixVersion1.10/src/brick breaker matrix v1.1.jpeg")); // Relative path from github file
         } catch (IOException e) {
             e.printStackTrace();
         }
