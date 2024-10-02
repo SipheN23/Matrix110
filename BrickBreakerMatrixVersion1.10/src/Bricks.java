@@ -6,11 +6,13 @@ public class Bricks {
     private Point position;
     private Color color;
     private int strength;
+    private boolean countedForScore;
 
     public Bricks(Point pos, Color color, int strength) {
         this.position = pos;
         this.color = color;
         this.strength = strength;
+        this.countedForeScore = false;
     }
 
     public Point getPosition() {
@@ -30,8 +32,18 @@ public class Bricks {
             strength--; // Decrease strength
         }
     }
+    
+    public boolean isCountedScore(){
+        return countedForScore; // Return the value of countedScore
+    }
+    //Method to set the flag countedForScore flag
+    public void setCountedForScore(boolean countedForScore){
+        this.countedForScore = countedForScore; // Update the countedForScore with provided value
+    }
 
     public Rectangle getBounds() {
         return new Rectangle(position.x, position.y, 50, 30); // Return bounds for collision detection
     }
+
+    
 }
