@@ -6,6 +6,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
+
 //This class creates the initial game "Play" option and image
 public class Launch implements ActionListener {
     private JFrame frame;
@@ -59,9 +60,9 @@ public class Launch implements ActionListener {
         //Brick breaker label
         JLabel label = new JLabel("BRICK BREAKER 1.10");
 		label.setFont(MatrixFont);
-        label.setForeground(Color.BLACK);
+        label.setForeground(Color.WHITE);
         label.setOpaque(true);
-        label.setBackground(Color.WHITE);
+        label.setBackground(Color.BLACK);
         int labelWidth = 400;  
         int labelHeight = 100; 
         int labelX = (WINDOW_WIDTH - labelWidth) / 2; 
