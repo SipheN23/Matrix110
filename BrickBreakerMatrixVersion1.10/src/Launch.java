@@ -13,6 +13,7 @@ public class Launch implements ActionListener {
     private Image backgroundImage;
     private static final int WINDOW_WIDTH = 800; // Set the width of the window
     private static final int WINDOW_HEIGHT = 600; // Set the height of the window
+    Font MatrixFont;
 
     public Launch() {
         // Load the background image
@@ -22,9 +23,19 @@ public class Launch implements ActionListener {
             e.printStackTrace();
         }
 
+        try{
+            MatrixFont = Font.createFont(Font.TRUETYPE_FONT, new File("C:/Users/HP/Documents/cs 102/Matrix-MZ4P.ttf")).deriveFont(30f);
+            GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+            ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File("C:/Users/HP/Documents/cs 102/Matrix-MZ4P.ttf")));
+            
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+
         // Create the frame and button
         frame = new JFrame();
         playButton = new JButton("PLAY");
+        playButton.setFont(MatrixFont);
 
         // Create a JPanel for the background
         JPanel panel = new JPanel() {
@@ -36,6 +47,10 @@ public class Launch implements ActionListener {
                 }
             }
         };
+
+
+        //adding custom game name font
+        
 
         panel.setLayout(null); // Use null layout to manually position components
         playButton.setBounds(WINDOW_WIDTH / 2 - 100, WINDOW_HEIGHT / 2 - 20, 200, 40); // Center the button
