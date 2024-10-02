@@ -248,11 +248,14 @@ public class Gameplay extends GameBackground implements KeyListener {
  * The game is unpaused and marked as not over.
  */
 private void restartGame() {
+    //Clear the balls in the balls list
+    balls.clear();
     // Reset the score to 0
     score = 0;
 
     // Create a new Ball object at the initial position (480, 680) with a diameter of 20
     ball = new Ball(480, 680, 20);
+    balls.add(ball) // add new ball to list
 
     // Create a new Paddle object at the initial position (450, 700)
     paddle = new Paddle(450, 700);

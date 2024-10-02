@@ -120,16 +120,10 @@
     /**
      * Resets the lives to the initial startingLives value.
      * 
-     * @param initialLives the desired number of lives to reset to.
-     *                    If initialLives is greater than maxLives, 
-     *                    the lives will be reset to maxLives.
+     * @param initialLives the desired number of lives to reset to.                 
      */
     public void resetLives(int initialLives){
-        if(initialLives <= maxLives){
-            this.remainingLives = initialLives; // Reset remaining lives if within maxLives
-        } else {
-            this.remainingLives = maxLives; // Cap remaining lives at maxLives
-        }
+        this.remainingLives = initialLives;
     }
 
     /**
