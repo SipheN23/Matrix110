@@ -23,14 +23,15 @@ public class Launch implements ActionListener {
             e.printStackTrace();
         }
 
+        //creation of the matrix font and registering it
         try{
-            MatrixFont = Font.createFont(Font.TRUETYPE_FONT, new File("C:/Users/HP/Documents/cs 102/Matrix-MZ4P.ttf")).deriveFont(30f);
+            MatrixFont = Font.createFont(Font.TRUETYPE_FONT, new File("BrickBreakerMatrixVersion1.10/src/Matrix-MZ4P.ttf")).deriveFont(30f);
             GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-            ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File("C:/Users/HP/Documents/cs 102/Matrix-MZ4P.ttf")));
+            ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File("BrickBreakerMatrixVersion1.10/src/Matrix-MZ4P.ttf")));
             
         } catch(Exception e){
             e.printStackTrace();
-        }
+        }//end of try catch
 
         // Create the frame and button
         frame = new JFrame();
