@@ -9,13 +9,14 @@ import javax.io.File;
 import java.io.IOException;
 import java.util.Random;
 
-**
+/**
  * The Gameplay class manages the main game logic for a brick breaker game.
  * It handles user input, rendering of game objects, and manages game state, including levels and scoring.
  */
 public class Gameplay extends GameBackground implements KeyListener {
     private Paddle paddle; // The paddle controlled by the player
     private List<Bricks> bricks; // List of bricks to be destroyed
+    private LivesManager livesManager; // keep track of lives
     private Ball ball; // The ball that bounces around the screen
     private Timer timer; // Timer to control the game loop
     private SoundPlayer soundPlayer; // Sound player for game sound effects
@@ -32,6 +33,7 @@ public class Gameplay extends GameBackground implements KeyListener {
         new level(7, 14, Color.GREEN),
     };
     private int currentLevelIndex = 0; // The index of the current level
+    private List<Ball>balls; // List of balls 
 
     /**
      * Constructs a Gameplay object, initializes game components, and starts the game.
@@ -219,7 +221,7 @@ public class Gameplay extends GameBackground implements KeyListener {
             ball.checkPaddleCollision(paddle); // Check for paddle collisions
             
             repaint(); // Update the display
-            checkLevelCompletion() // check for level completion
+            checkLevelCompletion(); // check for level completion
         if(ball.getY() > paddle.getPaddleYCoord() + paddle.getPaddleHeight()){
                     handleBallfell();
                 }
@@ -255,7 +257,7 @@ private void restartGame() {
 
     // Create a new Ball object at the initial position (480, 680) with a diameter of 20
     ball = new Ball(480, 680, 20);
-    balls.add(ball) // add new ball to list
+    balls.add(ball); // add new ball to list
 
     // Create a new Paddle object at the initial position (450, 700)
     paddle = new Paddle(450, 700);
@@ -267,7 +269,7 @@ private void restartGame() {
     initializeBricks();
 
     // Mark that the ball has not been launched yet
-    ballLaunced = false;
+    ballLaunched = false;
 
     // Unpause the game
     isPaused = false;
@@ -306,7 +308,7 @@ private void handleBallfell() {
         repaint();
     }
     // Mark the ball as not launched
-    ballLaunced = false;
+    ballLaunched = false;
 }
 
 /**
@@ -320,7 +322,7 @@ private void resetlevel() {
         paddle.getPaddleYCoord() - ball.getDiameter()
     );
     // Mark the ball as not launched
-    ballLaunced = false;
+    ballLaunched = false;
 }
 
 /**
@@ -405,7 +407,7 @@ private void handleMenuSelection() {
 @Override
 public void keyPressed(KeyEvent e) {
     // If the UP arrow key is pressed and the ball hasn't been launched, launch the ball
-    if (e.getKeyCode() == KeyEvent.VK_UP && !ballLaunced) {
+    if (e.getKeyCode() == KeyEvent.VK_UP && !ballLaunched) {
         // Set the ball's position to the center of the paddle
         ball.setX(paddle.getPaddleXCoord() + (paddle.getPaddleWidth() / 2) - (ball.getDiameter() / 2));
         ball.setY(paddle.getPaddleYCoord() - ball.getDiameter());
