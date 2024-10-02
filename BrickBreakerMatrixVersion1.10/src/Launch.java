@@ -36,7 +36,6 @@ public class Launch implements ActionListener {
         // Create the frame and button
         frame = new JFrame();
         playButton = new JButton("PLAY");
-        playButton.setFont(MatrixFont);
 
         // Create a JPanel for the background
         JPanel panel = new JPanel() {
@@ -48,22 +47,38 @@ public class Launch implements ActionListener {
                 }
             }
         };
-
-
-        //adding custom game name font
         
 
-        panel.setLayout(null); // Use null layout to manually position components
+        panel.setLayout(null); // Using null layout to manually position components
         playButton.setBounds(WINDOW_WIDTH / 2 - 100, WINDOW_HEIGHT / 2 - 20, 200, 40); // Center the button
         playButton.setFocusable(false);
         playButton.addActionListener(this);
         panel.add(playButton);
+        
+
+        //Brick breaker label
+        JLabel label = new JLabel("BRICK BREAKER 1.10");
+		label.setFont(MatrixFont);
+        label.setForeground(Color.BLACK);
+        label.setOpaque(true);
+        label.setBackground(Color.WHITE);
+        int labelWidth = 400;  
+        int labelHeight = 100; 
+        int labelX = (WINDOW_WIDTH - labelWidth) / 2; 
+        int labelY = 40; 
+        label.setBounds(labelX, labelY, labelWidth, labelHeight);
+        label.setHorizontalAlignment(SwingConstants.CENTER); 
+        label.setVerticalAlignment(SwingConstants.CENTER); // Centre the text 
+		panel.add(label);
+        label.setVisible(true);
 
         frame.setContentPane(panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
         frame.setLocationRelativeTo(null); // Center the window on the screen
         frame.setVisible(true);
+
+
     }
 
     @Override
