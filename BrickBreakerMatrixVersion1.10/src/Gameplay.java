@@ -239,7 +239,7 @@ public class Gameplay extends GameBackground implements KeyListener {
 
         }          
     }
-}
+
 
   /**
  * Restarts the game by resetting all relevant game state variables 
