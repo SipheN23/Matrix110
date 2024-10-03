@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.*;
 import javax.imageio.ImageIO;
-import javax.io.File;
+import java.io.File;
 import java.io.IOException;
 import java.util.Random;
 
@@ -40,7 +40,7 @@ public class Gameplay extends GameBackground implements KeyListener {
      */
     public Gameplay() {
         paddle = new Paddle(450, 700);
-        ball = new Ball(500, 650, 20);
+        ball = new Ball(480, 680, 20);
         ball.launch(); // Ensure the ball is launched
         ballLaunched = false;
         balls = new ArrayList<>();
@@ -214,11 +214,18 @@ public class Gameplay extends GameBackground implements KeyListener {
      * Main game loop that updates the game state and redraws the game.
      */
     private void gameLoop() {
-        if(ballLaunched){
-            ball.move(); // Move the ball
-            ball.checkWallCollision(1000, 800); // Check for wall collisions
+        if(isPaused){
+            return;
+        }
+        if(!isPaused && !gameOver){
+            if(ballLaunched){
+                for(Ball b : balls){
+                    b.move(); // Move the ball
+                    b.checkWallCollision(1000, 800); // Check for wall collisions
+                    b.checkPaddleCollision(paddle); // Check for paddle collisions
+                }
             checkBrickCollision(); // Check for brick collisions
-            ball.checkPaddleCollision(paddle); // Check for paddle collisions
+            
             
             repaint(); // Update the display
             checkLevelCompletion(); // check for level completion
@@ -234,11 +241,13 @@ public class Gameplay extends GameBackground implements KeyListener {
                 score += 100;
                 // Mark the brick as counted to prevent adding a score for the same brick multiple times
                 brick.setCountedForScore(true);
-    }
+                    }
         });
 
         }          
     }
+
+}
 
 
   /**
@@ -270,6 +279,13 @@ private void restartGame() {
 
     // Mark that the ball has not been launched yet
     ballLaunched = false;
+
+    // Reset the position of both the ball and the paddle
+    ball.resetPosition(paddle.getPaddleXCoord() + (paddle.getPaddleWidth() / 2) - (ball.getDiameter() / 2),
+    paddle.getPaddleYCoord() - ball.getDiameter());
+
+    // Launch the ball
+    ball.launch();
 
     // Unpause the game
     isPaused = false;
@@ -414,7 +430,7 @@ public void keyPressed(KeyEvent e) {
         // Launch the ball
         ball.launch();
         // Mark the ball as launched
-        ballLaunced = true;
+        ballLaunched = true;
     }
 
     // Move the paddle right when the RIGHT arrow key is pressed
