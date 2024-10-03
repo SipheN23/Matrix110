@@ -12,7 +12,7 @@ public class Bricks {
         this.position = pos;
         this.color = color;
         this.strength = strength;
-        this.countedForeScore = false;
+        this.countedForScore = false;
     }
 
     public Point getPosition() {
