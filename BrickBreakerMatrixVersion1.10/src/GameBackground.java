@@ -10,7 +10,7 @@ public class GameBackground extends JPanel {
     public GameBackground() {
         try {
             // Load the background image 
-            backgroundImage = ImageIO.read(new File("BrickBreakerMatrixVersion1.10/src/_b35486c8-42a6-4f64-b4b0-30c60f537c6c.jpeg")); // Relative path from github
+            backgroundImage = ImageIO.read(new File(BrickBreakerMatrixVersion1.10/src/brick breaker matrix v1.1.jpeg)); // Relative path from github
         } catch (IOException e) {
             e.printStackTrace();
         }
