@@ -33,7 +33,6 @@ public class Gameplay extends GameBackground implements KeyListener {
         new level(7, 14, Color.GREEN),
     };
     private int currentLevelIndex = 0; // The index of the current level
-    private List<Ball>balls; // List of balls 
 
     /**
      * Constructs a Gameplay object, initializes game components, and starts the game.
@@ -43,8 +42,6 @@ public class Gameplay extends GameBackground implements KeyListener {
         ball = new Ball(480, 680, 20);
         ball.launch(); // Ensure the ball is launched
         ballLaunched = false;
-        balls = new ArrayList<>();
-        balls.add(ball);
         livesManager = new LivesManager(3, 5);
         addKeyListener(this);
         setFocusable(true);
@@ -54,7 +51,7 @@ public class Gameplay extends GameBackground implements KeyListener {
         startGame(); // Start the game loop
 
         try {
-            pauseImage = ImageIO.read(new File("/Matrix110/BrickBreakerMatrixVersion1.10/src/_b35486c8-42a6-4f64-b4b0-30c60f537c6c.jpeg"));
+            pauseImage = ImageIO.read(new File("/Matrix110/BrickBreakerMatrixVersion1.10/src/_b35486c8-42a6-4f64-b4b0-30c60f537c6c.jpeg")); //use your own file path based on your machine
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -117,7 +114,8 @@ public class Gameplay extends GameBackground implements KeyListener {
         // Check if the ball has collided with any bricks in the game
         if (ball.checkBrickCollision(bricks)) {
             // If there was a collision, play the sound effect for hitting a brick
-            soundPlayer.playSoundEffect("/Matrix110/BrickBreakerMatrixVersion.1.10/src/HitBallEffect.wav");
+            SoundPlayer soundPlayer = new SoundPlayer(); 
+            soundPlayer.playSoundEffect("/Matrix110/BrickBreakerMatrixVersion.1.10/src/HitBallEffect.wav"); //change file path based on own machine
         }
     }
     @Override
@@ -219,19 +217,17 @@ public class Gameplay extends GameBackground implements KeyListener {
         }
         if(!isPaused && !gameOver){
             if(ballLaunched){
-                for(Ball b : balls){
-                    b.move(); // Move the ball
-                    b.checkWallCollision(1000, 800); // Check for wall collisions
-                    b.checkPaddleCollision(paddle); // Check for paddle collisions
-                }
-            checkBrickCollision(); // Check for brick collisions
-            
-            
+                ball.move(); // Move the ball
+                ball.checkWallCollision(1000, 800); // Check for wall collisions
+                ball.checkPaddleCollision(paddle); // Check for paddle collisions
+                checkBrickCollision(); // Check for brick collisions
+            }
             repaint(); // Update the display
             checkLevelCompletion(); // check for level completion
+            
         if(ball.getY() > paddle.getPaddleYCoord() + paddle.getPaddleHeight()){
-                    handleBallfell();
-                }
+            handleBallfell();
+        }
 
         // Iterate through each brick in the bricks list
         bricks.forEach(brick -> {
@@ -243,11 +239,8 @@ public class Gameplay extends GameBackground implements KeyListener {
                 brick.setCountedForScore(true);
                     }
         });
-
-        }          
+        }
     }
-
-}
 
 
   /**
@@ -259,15 +252,12 @@ public class Gameplay extends GameBackground implements KeyListener {
  * The game is unpaused and marked as not over.
  */
 private void restartGame() {
-    //Clear the balls in the balls list
-    balls.clear();
     // Reset the score to 0
     score = 0;
 
     // Create a new Ball object at the initial position (480, 680) with a diameter of 20
     ball = new Ball(480, 680, 20);
-    balls.add(ball); // add new ball to list
-
+    
     // Create a new Paddle object at the initial position (450, 700)
     paddle = new Paddle(450, 700);
 
