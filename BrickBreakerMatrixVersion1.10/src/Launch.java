@@ -19,16 +19,16 @@ public class Launch implements ActionListener {
     public Launch() {
         // Load the background image
         try {
-            backgroundImage = ImageIO.read(new File("BrickBreakerMatrixVersion1.10/src/_b35486c8-42a6-4f64-b4b0-30c60f537c6c.jpeg")); // Relative path from github file
+            backgroundImage = ImageIO.read(new File("_b35486c8-42a6-4f64-b4b0-30c60f537c6c.jpeg")); // Relative path from github file
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         //creation of the matrix font and registering it
         try{
-            MatrixFont = Font.createFont(Font.TRUETYPE_FONT, new File("BrickBreakerMatrixVersion1.10/src/Matrix-MZ4P.ttf")).deriveFont(30f);
+            MatrixFont = Font.createFont(Font.TRUETYPE_FONT, new File("Matrix-MZ4P.ttf")).deriveFont(30f);
             GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-            ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File("BrickBreakerMatrixVersion1.10/src/Matrix-MZ4P.ttf")));
+            ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File("Matrix-MZ4P.ttf")));
             
         } catch(Exception e){
             e.printStackTrace();

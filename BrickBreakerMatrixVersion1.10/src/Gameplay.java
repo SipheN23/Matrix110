@@ -1,13 +1,12 @@
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.ArrayList;
-import java.util.List;
-import javax.swing.*;
-import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
-import java.util.Random;
+import java.util.ArrayList;
+import java.util.List;
+import javax.imageio.ImageIO;
+import javax.swing.*;
 
 /**
  * The Gameplay class manages the main game logic for a brick breaker game.
@@ -51,7 +50,7 @@ public class Gameplay extends GameBackground implements KeyListener {
         startGame(); // Start the game loop
 
         try {
-            pauseImage = ImageIO.read(new File("/Matrix110/BrickBreakerMatrixVersion1.10/src/_b35486c8-42a6-4f64-b4b0-30c60f537c6c.jpeg")); //use your own file path based on your machine
+            pauseImage = ImageIO.read(new File("_b35486c8-42a6-4f64-b4b0-30c60f537c6c.jpeg")); //use your own file path based on your machine
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -115,7 +114,7 @@ public class Gameplay extends GameBackground implements KeyListener {
         if (ball.checkBrickCollision(bricks)) {
             // If there was a collision, play the sound effect for hitting a brick
             SoundPlayer soundPlayer = new SoundPlayer(); 
-            soundPlayer.playSoundEffect("/Matrix110/BrickBreakerMatrixVersion.1.10/src/HitBallEffect.wav"); //change file path based on own machine
+            soundPlayer.playSoundEffect("HitBallEffect.wav"); //change file path based on own machine
         }
     }
     @Override
